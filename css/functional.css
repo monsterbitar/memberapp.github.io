@@ -216,7 +216,7 @@ pre { max-width: 900px; }
 	display: flex;
 	align-items: center;
 
-	padding: 0.25rem 0rem;
+	padding: 0.5rem 0rem;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.17);
 }
 
@@ -246,6 +246,7 @@ pre { max-width: 900px; }
 }
 .athing > .postimage > img
 {
+	display: block;
 	width: 3rem;
 	height: 3rem;
 	margin-left: 0.25rem;
@@ -260,5 +261,10 @@ pre { max-width: 900px; }
 .athing aside
 {
 	margin: 0;
+}
+
+.athing > .post > .subtext
+{
+	padding-bottom: 0.33rem;
 }
 
