@@ -227,7 +227,7 @@ pre { max-width: 900px; }
 .athing * { outline: 0px solid red; }
 
 .athing > .rank:after { content: '.'; }
-.athing > .rank { flex: 0 0 2.25rem; text-align: right; }
+.athing > .rank { flex: 0 0 1.25rem; text-align: right; }
 .athing > .votelinks
 {
 	display: flex;
@@ -261,14 +261,6 @@ pre { max-width: 900px; }
 .athing aside
 {
 	margin: 0;
-}
-
-.athing > .post > p
-{
-	max-width: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
 .athing > .post > .subtext
