@@ -200,3 +200,42 @@ pre { max-width: 900px; }
 .leaflet-popup-content-wrapper {
   background-color:#f6f6ef;
 }
+
+/*******************************/
+
+.itemlist
+{
+	list-style-type: none;
+	list-style-position: inside;
+	padding: 0;
+	margin: 0;
+}
+.athing
+{
+	display: flex;
+	align-items: center;
+
+	margin-bottom: 0.5rem;
+	outline: 1px solid blue;
+}
+
+.athing:last-child { margin-bottom: 0; }
+
+.athing * { outline: 0px solid red; }
+.athing > .rank:after { content: '.'; }
+.athing > .rank {  }
+.athing > .votelinks
+{
+	flex-basis: 1rem;
+}
+
+.athing > .title
+{
+	flex-basis: auto;
+}
+.athing p,
+.athing aside
+{
+	margin: 0;
+}
+

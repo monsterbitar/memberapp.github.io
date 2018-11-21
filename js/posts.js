@@ -11,7 +11,7 @@ function getAndPopulate(start,limit,page,qaddress,type){
             contents=contents+getHTMLForPost(data[i],i+1+start,page,i);
         }
         if(contents==""){contents="Nothing in this feed yet";}
-        contents=`<table class="itemlist" cellspacing="0" cellpadding="0" border="0"><tbody>`+contents+"<tr><td/><td/><td>"+navbuttons+"</td></tr></tbody></table>";
+        contents=`<ol class="itemlist">`+contents+navbuttons+"</ol>";
         document.getElementById(page).innerHTML = contents; //display the result in an HTML element
         addStarRatings(data,page);
         window.scrollTo(0, 0);
@@ -74,45 +74,34 @@ function getAndPopulateTopic(start,limit,topicname){
 
 function getHTMLForPost(data,rank,page,starindex){
     if(checkForMutedWords(data)) return "";
-    return `<tr class="athing">
-                <td class="title" valign="top" align="right"><span class="rank">`+rank+`.</span></td>
-                <td class="votelinks" valign="top" rowspan="2">
-                    <center><a href="javascript:;" onclick="likePost('`+ds(data.txid)+`')"><div id="upvote`+ds(data.txid)+`" class="votearrow" title="upvote"></div></a></center>
-                    <center><a href="javascript:;" onclick="dislikePost('`+ds(data.txid)+`')"><div id="downvote`+ds(data.txid)+`" class="votearrow rotate180" title="downvote"></div></a></center>
-                </td>
-                <td class="title">
-                    <a href="#thread?root=`+ds(data.roottxid)+`&post=`+ds(data.txid)+`" onclick="showThread('`+ds(data.roottxid)+`','`+ds(data.txid)+`')">`+anchorme(ds(data.message),{attributes:[{name:"target",value:"_blank"}]})+`</a> `+
-                    (data.topic==''?"":`<a href="#topic?topicname=`+encodeURIComponent(data.topic)+`&start=0&limit=25" onclick="showTopic(0,25,'`+unicodeEscape(data.topic)+`')">(`+ds(data.topic)+`)</a>`)+
-                `</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="subtext">
-                    <span class="score">`+(ds(data.likes)-ds(data.dislikes))+` likes and `+ds(data.tips)+` sats </span>`
-                    +(ds(data.name)==""?" ":`by <a href="#member?qaddress=`+ds(data.address)+`" onclick="showMember('`+ds(data.address)+`')" class="hnuser">`+ds(data.name)+`</a> <div id="rating`+starindex+page+ ds(data.address) + `"></div> `)  
-                    +`<span class="age"><a>`+timeSince(ds(data.firstseen))+`</a></span> | `
-                    //+(((ds(data.replies)-1)>-1)?`<a href="#thread?post=`+ds(data.roottxid)+`" onclick="showThread('`+ds(data.roottxid)+`')">`+(ds(data.replies)-1)+`&nbsp;comments</a> | `:``)
-                    +`<a href="#thread?root=`+ds(data.roottxid)+`&post=`+ds(data.txid)+`" onclick="showThread('`+ds(data.roottxid)+`','`+ds(data.txid)+`')">`+(ds(data.replies))+`&nbsp;comments</a> | `
-                    +`<a id="replylink`+page+ds(data.txid)+`" onclick="showReplyBox('`+page+ds(data.txid)+`');" href="javascript:;">reply</a>
-                    | <a id="tiplink`+page+ds(data.txid)+`" onclick="showTipBox('`+page+ds(data.txid)+`');" href="javascript:;">tip</a>
-                    <span id="tipbox`+page+ds(data.txid)+`" style="display:none">
-                        <input id="tipamount`+page+ds(data.txid)+`" type="number" value="0" min="0" style="width: 6em;" step="1000"/>
-                        <input value="tip"  type="submit" onclick="sendTip('`+ds(data.txid)+`','`+ds(data.address)+`','`+ds(page)+`');"/>
-                    </span>
-                 </td>
-            </tr>
-            <tr>
-                <td colspan="2"></td>
-                <td>
-                    <div id="reply`+page+ds(data.txid)+`" style="display:none">
-                        <br/>
+    return `<li class="athing">
+                <div class="rank">`+rank+`</div>
+                <div class="votelinks">
+                    <a href="javascript:;" onclick="likePost('`+ds(data.txid)+`')"><div id="upvote`+ds(data.txid)+`" class="votearrow" title="upvote"></div></a>
+                    <a href="javascript:;" onclick="dislikePost('`+ds(data.txid)+`')"><div id="downvote`+ds(data.txid)+`" class="votearrow rotate180" title="downvote"></div></a>
+                </div>
+                <article class='post'>
+                    <p class="title">
+                        <a href="#thread?root=`+ds(data.roottxid)+`&post=`+ds(data.txid)+`" onclick="showThread('`+ds(data.roottxid)+`','`+ds(data.txid)+`')">`+anchorme(ds(data.message),{attributes:[{name:"target",value:"_blank"}]})+`</a> `+ (data.topic==''?"":`<a href="#topic?topicname=`+encodeURIComponent(data.topic)+`&start=0&limit=25" onclick="showTopic(0,25,'`+unicodeEscape(data.topic)+`')">(`+ds(data.topic)+`)</a>`)+
+                    `</p>
+                    <aside class="subtext">
+                        <span class="age">Posted <a>`+timeSince(ds(data.firstseen))+`</a></span> by <a href="#member?qaddress=`+ds(data.address)+`" onclick="showMember('`+ds(data.address)+`')" class="hnuser">`+ds(data.name)+`</a> | <span class="score">`+(ds(data.likes)-ds(data.dislikes))+` likes and `+ds(data.tips)+` sats </span> | `+(ds(data.name)==""?" ":`<div id="rating`+starindex+page+ ds(data.address) + `"></div> `)  
+                        +`</aside><aside>`
+                        //+(((ds(data.replies)-1)>-1)?`<a href="#thread?post=`+ds(data.roottxid)+`" onclick="showThread('`+ds(data.roottxid)+`')">`+(ds(data.replies)-1)+`&nbsp;comments</a> | `:``)
+                        +`<a href="#thread?root=`+ds(data.roottxid)+`&post=`+ds(data.txid)+`" onclick="showThread('`+ds(data.roottxid)+`','`+ds(data.txid)+`')">`+(ds(data.replies))+`&nbsp;comments</a> | `
+                        +`<a id="replylink`+page+ds(data.txid)+`" onclick="showReplyBox('`+page+ds(data.txid)+`');" href="javascript:;">reply</a>
+                        | <a id="tiplink`+page+ds(data.txid)+`" onclick="showTipBox('`+page+ds(data.txid)+`');" href="javascript:;">tip</a>
+                        <span id="tipbox`+page+ds(data.txid)+`" style="display:none">
+                            <input id="tipamount`+page+ds(data.txid)+`" type="number" value="0" min="0" style="width: 6em;" step="1000"/>
+                            <input value="tip"  type="submit" onclick="sendTip('`+ds(data.txid)+`','`+ds(data.address)+`','`+ds(page)+`');"/>
+                        </span>
+                    </aside>
+                    <aside id="reply`+page+ds(data.txid)+`" style="display:none">
                         <textarea maxlength="184" id="replytext`+page+ds(data.txid)+`" rows="3"  style="width:100%;"></textarea>
-                        <br/><br/>
                         <input id="replybutton`+page+ds(data.txid)+`" value="reply" type="submit" onclick="sendReply('`+ds(data.txid)+`','`+ds(page)+`');"/>
-                    </div>
-                </td>
-            </tr>
-            <tr class="spacer" style="height:5px"></tr>`;
+                    </aside>
+                </div>
+            </li>`;
 }
 
 function getHTMLForReply(data,depth,page,starindex,highlighttxid){
