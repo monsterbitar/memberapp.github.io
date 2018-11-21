@@ -81,7 +81,10 @@ function getHTMLForPost(data,rank,page,starindex){
                     <span>•</span>
                     <a href="javascript:;" onclick="dislikePost('`+ds(data.txid)+`')"><div id="downvote`+ds(data.txid)+`" class="votearrow rotate180" title="downvote"></div></a>
                 </div>
-                <article class='post'>
+                <div class="postimage">
+                    <img src='' title='post image' />
+                </div>
+                <article class="post">
                     <p class="title">
                         <a href="#thread?root=`+ds(data.roottxid)+`&post=`+ds(data.txid)+`" onclick="showThread('`+ds(data.roottxid)+`','`+ds(data.txid)+`')">`+anchorme(ds(data.message),{attributes:[{name:"target",value:"_blank"}]})+`</a> `+ (data.topic==''?"":`<a href="#topic?topicname=`+encodeURIComponent(data.topic)+`&start=0&limit=25" onclick="showTopic(0,25,'`+unicodeEscape(data.topic)+`')">(`+ds(data.topic)+`)</a>`)+
                     `</p>
