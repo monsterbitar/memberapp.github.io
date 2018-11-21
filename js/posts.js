@@ -82,7 +82,7 @@ function getHTMLForPost(data,rank,page,starindex){
                     <a href="javascript:;" onclick="dislikePost('`+ds(data.txid)+`')"><div id="downvote`+ds(data.txid)+`" class="votearrow rotate180" title="downvote"></div></a>
                 </div>
                 <div class="postimage">
-                    <img src='' title='post image' />
+                    <img src='img/postimage.png' title='post image' />
                 </div>
                 <article class="post">
                     <p class="title">
