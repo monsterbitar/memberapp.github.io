@@ -78,6 +78,7 @@ function getHTMLForPost(data,rank,page,starindex){
                 <div class="rank">`+rank+`</div>
                 <div class="votelinks">
                     <a href="javascript:;" onclick="likePost('`+ds(data.txid)+`')"><div id="upvote`+ds(data.txid)+`" class="votearrow" title="upvote"></div></a>
+                    <span>•</span>
                     <a href="javascript:;" onclick="dislikePost('`+ds(data.txid)+`')"><div id="downvote`+ds(data.txid)+`" class="votearrow rotate180" title="downvote"></div></a>
                 </div>
                 <article class='post'>
