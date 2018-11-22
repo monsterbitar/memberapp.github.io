@@ -1,0 +1,147 @@
+.itemlist
+{
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+    border:1px solid green;
+    border-radius: 0.5rem;
+}
+
+/* Navigation */
+
+nav
+{
+    margin-top: 0.25rem;
+    border-bottom: 1px solid green;
+    width: 100%;
+}
+
+nav #loginbutton,
+nav #logoutbutton
+{
+    float: right;
+}
+
+nav > section
+{
+    display: inline-block;
+}
+
+nav > a
+{
+    display: flex;
+    align-items: center;
+    padding: 0rem 0.5rem;
+    outline: 1px solid red;
+}
+
+nav > a > img
+{
+    
+}
+
+nav > section > span
+{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+nav > section > span > a
+{
+    padding: 0.25rem 0.5rem;
+    padding-bottom: 0;
+    position: relative;
+    bottom: -1px;
+    border: 1px solid green;
+    
+    background-color: grey;
+    color: rgba(0, 0, 0, 0.65);
+
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+nav > section > span > a.selected
+{
+    background-color: rgb(75, 200, 70);
+    color: black;
+    border-bottom: 1px solid rgb(75, 200, 70);
+}
+
+/* */
+
+#posts
+{
+    background-color: rgb(75, 200, 70);
+    padding: 0.25rem;
+    padding-top: 0.75rem;
+}
+
+#posts > ol
+{
+    background-color: rgb(242, 242, 242);
+    box-shadow: inset 0rem 0.1rem 0.25rem rgba(0, 0, 0, 0.31);
+}
+
+/* Memo: a post made on the blockchain. */
+
+.memo
+{
+	display: flex;
+	align-items: center;
+
+	padding: 0.5rem 0rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+}
+
+.memo:nth-child(even) { background-color: rgba(0, 0, 0, 0.07); border-bottom: 1px solid rgba(0, 0, 0, 0.11); }
+
+.memo:last-child { margin-bottom: 0; border-bottom: 0; }
+
+.memo * { outline: 0px solid red; }
+
+.memo > .rank:after { content: '.'; }
+.memo > .rank { flex: 0 0 1.5rem; padding-left: 0.25rem; text-align: right; }
+.memo > .votelinks
+{
+	display: flex;
+	flex: 0 0 1.25rem;
+	flex-direction: column;
+	align-items: center;
+}
+
+.memo > .icon
+{
+	display: flex;
+	flex: 0 0 3.75rem;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+   opacity: 1;
+}
+.memo > .icon > img
+{
+	display: block;
+	width: 3rem;
+	height: 3rem;
+	margin-left: 0.25rem;
+	margin-right: 0.50rem;
+}
+
+.memo > .post > .title
+{
+	flex-basis: auto;
+   padding-right: 0.25rem;
+}
+.memo p,
+.memo aside
+{
+	margin: 0;
+}
+
+.memo > .post > .subtext
+{
+	padding-bottom: 0.33rem;
+}
+

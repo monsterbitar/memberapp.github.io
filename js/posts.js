@@ -74,14 +74,14 @@ function getAndPopulateTopic(start,limit,topicname){
 
 function getHTMLForPost(data,rank,page,starindex){
     if(checkForMutedWords(data)) return "";
-    return `<li class="athing">
+    return `<li class="memo">
                 <div class="rank">`+rank+`</div>
                 <div class="votelinks">
                     <a href="javascript:;" onclick="likePost('`+ds(data.txid)+`')"><div id="upvote`+ds(data.txid)+`" class="votearrow" title="upvote"></div></a>
                     <span>•</span>
                     <a href="javascript:;" onclick="dislikePost('`+ds(data.txid)+`')"><div id="downvote`+ds(data.txid)+`" class="votearrow rotate180" title="downvote"></div></a>
                 </div>
-                <div class="postimage">
+                <div class="icon">
                     <img src='img/postimage.png' title='post image' />
                 </div>
                 <article class="post">

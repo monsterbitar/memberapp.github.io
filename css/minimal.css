@@ -1,3 +1,58 @@
+/* Include a reference to a local copy of the Roboto android font. */
+@font-face
+{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url('../fonts/Roboto-Regular.ttf');
+}
+@font-face
+{
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Roboto Italic'), local('Roboto-Italic'), url('../fonts/Roboto-Italic.ttf');
+}
+@font-face
+{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url('../fonts/Roboto-Bold.ttf');
+}
+@font-face
+{
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url('../fonts/Roboto-BoldItalic.ttf');
+}
+
+/* Apply a default font */
+html > body
+{
+    font-family: 'Roboto';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 11pt;
+}
+
+/* Stretch view to entire screen. */
+html > body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* */
+html > body
+{
+    background-color: white;
+}
+
+/* ??? */
 a, u {
     text-decoration: none;
 }
