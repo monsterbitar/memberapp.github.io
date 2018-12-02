@@ -149,6 +149,13 @@ nav > section > span > a.select:after
 
 .memo > .rank:after { content: '.'; }
 .memo > .rank { flex: 0 0 1.5rem; padding-left: 0.25rem; text-align: right; font-size: 1rem; color: rgba(0, 0, 0, 0.65); }
+
+/* Hide rank numbers in portrait mode. */
+@media only screen and (orientation: portrait)
+{
+	.memo > .rank { display: none; }
+}
+
 .memo > .votelinks
 {
 	display: flex;
