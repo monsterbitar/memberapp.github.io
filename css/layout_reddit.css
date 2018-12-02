@@ -117,6 +117,7 @@ nav > section > span > a.select:after
 
 #posts
 {
+	width: 100%;
 	background-color: rgb(75, 200, 70);
 	padding: 0.10rem;
 	padding-top: 0.75rem;
@@ -124,6 +125,8 @@ nav > section > span > a.select:after
 
 #posts > ol
 {
+	display: block;
+	width: auto;
 	background-color: rgb(242, 242, 242);
 	box-shadow: inset 0rem 0.1rem 0.25rem rgba(0, 0, 0, 0.31);
 }
