@@ -154,6 +154,7 @@ nav > section > span > a.select:after
 @media all and (orientation: portrait)
 {
 	.memo > .rank { display: none; }
+	.memo > .votelinks { margin-left: 0.25rem; }
 }
 
 .memo > .votelinks
