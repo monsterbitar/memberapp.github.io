@@ -118,6 +118,7 @@ nav > section > span > a.select:after
 #posts
 {
 	width: 100%;
+	overflow: hidden;
 	background-color: rgb(75, 200, 70);
 	padding: 0.10rem;
 	padding-top: 0.75rem;
