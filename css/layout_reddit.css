@@ -1,87 +1,131 @@
 .itemlist
 {
-    list-style-type: none;
-    list-style-position: inside;
-    padding: 0;
-    margin: 0;
-    border:1px solid green;
-    border-radius: 0.5rem;
+	list-style-type: none;
+	list-style-position: inside;
+	padding: 0;
+	margin: 0;
+	border: 0.05rem solid green;
+	border-radius: 0.5rem;
 }
 
 /* Navigation */
 
 nav
 {
-    margin-top: 0.25rem;
-    border-bottom: 1px solid green;
-    width: 100%;
+	display: flex;
+	width: 100%;
+	height: 2.5rem;
+
+	border-bottom: 0.05rem solid green;
+	background-color: white;
+	background: linear-gradient(to top, rgb(205, 255, 185) 0%, white 100%);
 }
 
 nav #loginbutton,
 nav #logoutbutton
 {
-    float: right;
-}
-
-nav > section
-{
-    display: inline-block;
+	float: right;
 }
 
 nav > a
 {
-    display: flex;
-    align-items: center;
-    padding: 0rem 0.5rem;
-    outline: 1px solid red;
+	padding: 0.5rem 0.25rem;
+	align-self: center;
 }
 
 nav > a > img
 {
-    
+	height: 2rem;
+	width: 5rem;
+}
+
+nav > section
+{
+	display: flex;
+	align-items: flex-end;
+	flex: auto;
+
+	height: 2.5rem;
 }
 
 nav > section > span
 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+	display: flex;
+	align-items: flex-end;
+
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
 
-nav > section > span > a
+nav > section > span:last-child
 {
-    padding: 0.25rem 0.5rem;
-    padding-bottom: 0;
-    position: relative;
-    bottom: -1px;
-    border: 1px solid green;
-    
-    background-color: grey;
-    color: rgba(0, 0, 0, 0.65);
+	flex: auto;
+	justify-content: flex-end;
+	font-size: 1rem;
+}
 
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
+nav > section > span:last-child > a
+{
+	align-self: center;
+	display: inline-block;
+	font-size: 1rem;
+
+	margin-right: 0.5ex;
+	margin-left: 1ex;
+}
+
+nav > section > span:first-child > a
+{
+	height: 2.00rem;
+	line-height: 1.5rem;
+
+	margin-right: 0.25rem;
+
+	padding: 0.25rem 0.5rem;
+	padding-bottom: 0.20rem;
+	padding-top: 0.30rem;
+
+	border: 0.05rem solid green;
+	border-bottom: 0.05rem solid green;
+
+	background-color: rgb(180, 180, 180);
+	color: rgba(0, 0, 0, 0.50);
+
+	font-size: 1rem;
+
+	border-top-left-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
 }
 
 nav > section > span > a.selected
 {
-    background-color: rgb(75, 200, 70);
-    color: black;
-    border-bottom: 1px solid rgb(75, 200, 70);
+	background-color: rgb(75, 200, 70);
+	border-bottom-color: rgb(75, 200, 70);
+	border-bottom-width: 0.05rem;
+	color: rgba(0, 0, 0, 0.70);
 }
 
-/* */
+nav > section > span > a.select:after
+{
+	display: inline-block;
+	width: 1rem;
+	height: 100%;
+	content: 'AAA';
+}
+
+/* Post list, the main view */
 
 #posts
 {
-    background-color: rgb(75, 200, 70);
-    padding: 0.25rem;
-    padding-top: 0.75rem;
+	background-color: rgb(75, 200, 70);
+	padding: 0.10rem;
+	padding-top: 0.75rem;
 }
 
 #posts > ol
 {
-    background-color: rgb(242, 242, 242);
-    box-shadow: inset 0rem 0.1rem 0.25rem rgba(0, 0, 0, 0.31);
+	background-color: rgb(242, 242, 242);
+	box-shadow: inset 0rem 0.1rem 0.25rem rgba(0, 0, 0, 0.31);
 }
 
 /* Memo: a post made on the blockchain. */
@@ -99,10 +143,8 @@ nav > section > span > a.selected
 
 .memo:last-child { margin-bottom: 0; border-bottom: 0; }
 
-.memo * { outline: 0px solid red; }
-
 .memo > .rank:after { content: '.'; }
-.memo > .rank { flex: 0 0 1.5rem; padding-left: 0.25rem; text-align: right; }
+.memo > .rank { flex: 0 0 1.5rem; padding-left: 0.25rem; text-align: right; font-size: 1rem; color: rgba(0, 0, 0, 0.65); }
 .memo > .votelinks
 {
 	display: flex;
@@ -110,6 +152,7 @@ nav > section > span > a.selected
 	flex-direction: column;
 	align-items: center;
 }
+.memo > .votelinks > span { font-size: 1rem; color: rgb(0, 0, 0, 0.65); }
 
 .memo > .icon
 {
@@ -118,7 +161,7 @@ nav > section > span > a.selected
 	flex-direction: column;
 	align-items: center;
 	justify-items: center;
-   opacity: 1;
+	opacity: 1;
 }
 .memo > .icon > img
 {
@@ -132,8 +175,13 @@ nav > section > span > a.selected
 .memo > .post > .title
 {
 	flex-basis: auto;
-   padding-right: 0.25rem;
+	padding-right: 0.25rem;
 }
+.memo > .post > .title *
+{
+	font-size: 0.75rem;
+}
+
 .memo p,
 .memo aside
 {
@@ -144,4 +192,17 @@ nav > section > span > a.selected
 {
 	padding-bottom: 0.33rem;
 }
+.memo > .post > .subtext,
+.memo > .post > .subtext *
+{
+	font-size: 0.5rem;
+}
 
+/* Thread View */
+
+/* Temporary */
+.yclinks,
+.yclinks *
+{
+	font-size: 0.5rem;
+}

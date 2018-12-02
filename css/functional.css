@@ -17,7 +17,7 @@
   display: none;
 }
 
-.votearrow { width: 1rem; height: 1rem; background-size: 1rem; background-image: url("../img/votearrow.png"); }
+.votearrow { width: 0.75rem; height: 0.75rem; background-size: 0.75rem; background-image: url("../img/votearrow.png"); }
 
 .rotate180 {
   -webkit-transform: rotate(180deg);  /* Chrome and other webkit browsers */

@@ -41,9 +41,11 @@
                 <a id="feedbutton" href="#feed?type=top&amp;start=0&amp;limit=25" onclick="showFeed(0,25,'top');">feed</a>
                 <a id="feedbuttonnew" href="#feed?type=new&amp;start=0&amp;limit=25" onclick="showFeed(0,25,'new');">(new)</a>
             </span>
-            <a id="newbutton" href="#new" onclick="showNewPost();">new post</a>
-            <a id="settingsbutton" href="#settings" onclick="showSettings();">settings</a>
-            <a id="logoutbutton" href="#logout" onclick="logout();">logout</a>
+            <span>
+				<a id="newbutton" href="#new" onclick="showNewPost();">new post</a>
+				<a id="settingsbutton" href="#settings" onclick="showSettings();">settings</a>
+				<a id="logoutbutton" href="#logout" onclick="logout();">logout</a>
+			</span>
         </section>
         <section id="loggedout">
             <span>
@@ -53,7 +55,9 @@
                 <a id="postsbuttoncontroversial" href="#posts?type=controversial&amp;start=0&amp;limit=25" onclick="showPosts(0,25,'controversial');">Controversial</a>
                 <a id="mapbutton" href="#map" onclick="showMap();">map</a>
             </span>
-            <a id="loginbutton" href="#login" onclick="showLogin();">login</a>
+            <span>
+				Want to join? <a id="loginbutton" href="#login" onclick="showLogin();">login</a> now.
+			</span>
         </section>
     </nav>
 </td>
