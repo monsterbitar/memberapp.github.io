@@ -48,6 +48,12 @@ html > body *
 	box-sizing: border-box;
 }
 
+/* Allow breaking words when necessery. */
+html > body *
+{
+	word-break: break-word;
+}
+
 /* Apply a default font */
 html > body
 {
